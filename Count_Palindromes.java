@@ -2,9 +2,15 @@
     /*
      * Complete the function below.
      */
+class Solution {     
+    public static void main(String[] args){
+        int x = countPalindromes("mithunnuhtim");
+        System.out.println(x);
+        return;
+    }
     static int countPalindromes(String s) {
         int result = 0;        
-        result = moreCheck(s);
+        result = checking(s);
         return result; 
     }
      static int moreCheck(String s) {
@@ -36,3 +42,30 @@
         }
         return true;
     }
+
+    static int checking (String s){
+        int result = s.length();
+        String temp = "";
+
+        for (int i = 0; i < s.length()-1; i++){
+            temp = s.substring(i, s.length());
+                                        System.out.println(temp);
+
+            if(check(temp)){
+                result = result + (temp.length()/2);
+
+            }
+        }
+        for (int i = s.length()-1; i > 1; i--){
+            temp = s.substring(0, i);
+                                        System.out.println(temp);
+
+            if(check(temp)){
+                result = result + (temp.length()/2);
+
+            }
+        }
+
+        return result; 
+    }
+}
