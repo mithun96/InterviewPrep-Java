@@ -4,16 +4,16 @@
      */
 class Solution {     
     public static void main(String[] args){
-        int x = countPalindromes("mithunnuhtim");
+        int x = countPalindromes("mithunanuhtim");
         System.out.println(x);
         return;
     }
     static int countPalindromes(String s) {
         int result = 0;        
-        result = checking(s);
+        result = moreCheck2(s);
         return result; 
     }
-     static int moreCheck(String s) {
+    static int moreCheck(String s) {
         String temp;
         int result =0 ;
         int len = s.length();
@@ -33,6 +33,39 @@ class Solution {
         }
         return result;
     }
+
+    static int moreCheck2(String s) {
+        int result = s.length() ;
+        int len = s.length();
+        for (int i = 0; i < len/2; i++){  
+        System.out.println("pivot: " + s.substring(i, i+1));
+
+            for (int j = 1; j < len; j++){
+                int left = i - j ;
+                int right = i + j +1;
+                if(left >= 0 && check(s.substring(left, i+1))  ){
+                    result++;
+                    System.out.println(s.substring(left, i+1));
+                }
+
+                if (right <= len && check(s.substring(i , right))    ){
+                    result++;
+                    System.out.println(s.substring(i , right));
+                }
+            } 
+        }
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
     static boolean check(String s) {
         int len = s.length();
         for (int i = 0; i < len/2 ; i++){
@@ -42,6 +75,15 @@ class Solution {
         }
         return true;
     }
+
+
+
+
+
+
+
+
+
 
     static int checking (String s){
         int result = s.length();
