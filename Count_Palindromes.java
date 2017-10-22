@@ -1,19 +1,46 @@
-
+import java.lang.*;
     /*
      * Complete the function below.
      */
 class Solution {     
     public static void main(String[] args){
-        int x = countPalindromes("mithunanuhtim");
+
+        int x = countPalindromes("draarata");
         System.out.println(x);
         return;
     }
+    
     static int countPalindromes(String s) {
         int result = 0;        
-        result = moreCheck2(s);
+        result = checkFinal(s);
         return result; 
     }
-    static int moreCheck(String s) {
+
+
+    // FINAL and OPTIMAL SOLUTION
+    static int checkFinal(String s) {
+        int len = s.length() ;
+        int result = len;
+        for (int i = 0; i < len; i++){  
+            
+            //Even Palindrones
+            int bufff = 0;
+            while ((i - bufff >= 0) && (i + bufff + 1 < len)  && (s.charAt(i - bufff) == s.charAt(i + bufff + 1))){
+                result++;
+                bufff++; 
+            }
+            
+            //Odd Palindrones
+            int buff = 1;
+            while ((i - buff>= 0) && (i + buff < len)  && (s.charAt(i - buff) == s.charAt(i+buff))){
+                result++;
+                buff++;
+            }
+        }
+        return result;
+    }
+
+    static int moreCheck1(String s) {
         String temp;
         int result =0 ;
         int len = s.length();
@@ -37,7 +64,7 @@ class Solution {
     static int moreCheck2(String s) {
         int result = s.length() ;
         int len = s.length();
-        for (int i = 0; i < len/2; i++){  
+        for (int i = 0; i < len/2 + 1; i++){  
         System.out.println("pivot: " + s.substring(i, i+1));
 
             for (int j = 1; j < len; j++){
@@ -57,15 +84,7 @@ class Solution {
         return result;
     }
 
-
-
-
-
-
-
-
-
-
+    // Check if input is Palindrome
     static boolean check(String s) {
         int len = s.length();
         for (int i = 0; i < len/2 ; i++){
@@ -82,32 +101,3 @@ class Solution {
 
 
 
-
-
-
-    static int checking (String s){
-        int result = s.length();
-        String temp = "";
-
-        for (int i = 0; i < s.length()-1; i++){
-            temp = s.substring(i, s.length());
-                                        System.out.println(temp);
-
-            if(check(temp)){
-                result = result + (temp.length()/2);
-
-            }
-        }
-        for (int i = s.length()-1; i > 1; i--){
-            temp = s.substring(0, i);
-                                        System.out.println(temp);
-
-            if(check(temp)){
-                result = result + (temp.length()/2);
-
-            }
-        }
-
-        return result; 
-    }
-}
