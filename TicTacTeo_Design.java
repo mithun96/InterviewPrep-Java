@@ -42,10 +42,10 @@ class TicTacToe {
 
         int size = cols.length;
 
-        if( MATH.abs(dia) == size || 
-            MATH.abs(aDia) == size ||
-            MATH.abs(cols[col]) == size || 
-            MATH.abs(rows[row]) == size){
+        if( Math.abs(dia) == size || 
+            Math.abs(aDia) == size ||
+            Math.abs(cols[col]) == size || 
+            Math.abs(rows[row]) == size){
                 return player;
         }
         else
