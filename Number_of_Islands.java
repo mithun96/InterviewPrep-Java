@@ -6,44 +6,7 @@ or vertically. You may assume all four edges of the grid are all surrounded by w
 */
 
 
-
-class Solution1{
-    public int numIslands(char[][] grid) {
-        int m = grid.length;
-        if (m == 0)
-        	return 0;
-
-        int n = grid[0].length;
-
-        int result = 0;
-
-        for(int i = 0; i < m; i++){
-        	for (int j = 0; j < n; j++) {
-        		
-        		//If not a 1, then go to the next block. 
-        		if(grid[i][j] == '0')
-        			continue;
-
-        		//If the above is a 1 then go to the next block because that island is already account for. 
-        		if(i > 0 && grid[i - 1][j] == '1' )
-        			continue;
-
-        		//If the left is a 1 then go to the next block because that island is already account for. 
-        		if(j > 0 && grid[i][j - 1] == '1' )  
-        			continue;
-
-        		result++;
-        	}
-        }
-        return result;
-    }
-}
-
-
-
-
-
-public class Solution2 {
+public class Solution {
 
 private int n;
 private int m;
