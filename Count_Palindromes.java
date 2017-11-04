@@ -1,3 +1,4 @@
+//Twitter Challenge
 import java.lang.*;
     /*
      * Complete the function below.
@@ -9,7 +10,7 @@ class Solution {
         System.out.println(x);
         return;
     }
-    
+
     static int countPalindromes(String s) {
         int result = 0;        
         result = checkFinal(s);
