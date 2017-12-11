@@ -16,12 +16,14 @@ of this node's descendants. The tree s could also be considered as a subtree of 
  * }
  */
 public class Solution {
-    HashSet < String > trees = new HashSet < > ();
+    //HashSet < String > trees = new HashSet < > ();
+
     public boolean isSubtree(TreeNode s, TreeNode t) {
         String tree1 = preorder(s, true);
         String tree2 = preorder(t, true);
         return tree1.indexOf(tree2) >= 0;
     }
+
     public String preorder(TreeNode t, boolean left) {
         if (t == null) {
             if (left)
@@ -29,7 +31,7 @@ public class Solution {
             else
                 return "rnull";
         }
-        return "#"+t.val + " " +preorder(t.left, true)+" " +preorder(t.right, false);
+        return "#" + t.val + " " + preorder(t.left, true) + " " + preorder(t.right, false);
     }
 }
 

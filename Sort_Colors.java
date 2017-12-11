@@ -11,7 +11,10 @@ Here, we will use the integers 0, 1, and 2 to represent the color red, white, an
 
 public void sortColors(int[] nums) {
     // 1-pass
-    int p1 = 0, p2 = nums.length - 1, index = 0;
+    int p1 = 0;
+    int p2 = nums.length - 1;
+    int index = 0;
+    
     while (index <= p2) {
         if (nums[index] == 0) {
             nums[index] = nums[p1];

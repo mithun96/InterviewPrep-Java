@@ -12,7 +12,7 @@ public boolean canPartition(int[] nums) {
         sum += num;
     }
     
-    if ((sum & 1) == 1) {
+    if ((sum % 2) == 1) {
         return false;
     }
     sum /= 2;

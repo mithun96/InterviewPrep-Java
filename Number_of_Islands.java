@@ -6,16 +6,21 @@ or vertically. You may assume all four edges of the grid are all surrounded by w
 */
 
 
-public class Solution {
+public class Number_of_Islands {
 
 	private int n;
 	private int m;
 
+
 	public int numIslands(char[][] grid) {
 	    int count = 0;
 	    n = grid.length;
-	    if (n == 0) return 0;
+
+	    if (n == 0) 
+	    	return 0;
+
 	    m = grid[0].length;
+	    
 	    for (int i = 0; i < n; i++){
 	        for (int j = 0; j < m; j++)
 	            if (grid[i][j] == '1') {

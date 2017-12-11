@@ -1,4 +1,5 @@
 import static java.lang.*;
+
 class TicTacToe {
     private int[] rows;
     private int[] cols;

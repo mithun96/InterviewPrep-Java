@@ -33,7 +33,7 @@ class Solution {
             
             //Odd Palindrones
             int buff = 1;
-            while ((i - buff>= 0) && (i + buff < len)  && (s.charAt(i - buff) == s.charAt(i+buff))){
+            while ((i - buff >= 0) && (i + buff < len)  && (s.charAt(i - buff) == s.charAt(i + buff))){
                 result++;
                 buff++;
             }
