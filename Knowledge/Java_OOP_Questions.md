@@ -19,7 +19,7 @@ When methods of the same signiture are in both super and sub class. There method
 	Ex. if super class throws IOException then subclass (overriding method) can not throw Exception 
 
 ## Method Overloading Vs. Overrding 
-Method overloading is resolved at complie time. Complier only need information of class for mehtod overloading 
+Method overloading is resolved at complie time. Complier only need information of class for method overloading 
 Method overriding is resolved at run time. Needs information of obeject to resolve the overriding method 
 
 # Detailed Question
@@ -56,7 +56,7 @@ Ex. String class is final in Java
 Final class can not extended. 
 
 ## Overriding final methods
-No, you cannot override a fianl method in java. See answer above for reason^
+No, you cannot override a final method in java. See answer above for reason^
 
 ## Abstract Class
 Abstract classes are classes that contain zero or more abstract methods. Abstract classes may not be instantiated and require subclasses to provide implementations for the abstract method. They are a class which is incomplete and provide default behavour and ensure that subclass of that class should customize abstract methods. 
@@ -73,26 +73,31 @@ Abstract class can contain non-abstract methods but interface can not contain ab
 A class can not extend one class but can implement multiple interfaces. 
 
 
-## Can we have a non-abstract method inside interface? (answer)
+## Can we have a non-abstract method inside interface? ***
 From Java 8 onward you can have a non-abstract method inside interface, prior to that it was not allowed as all method was implicitly public abstract. From JDK 8, you can add static and default method inside an interface.
 Read more: http://www.java67.com/2015/12/top-30-oops-concept-interview-questions-answers-java.html#ixzz50u4MRnJ1
 
-## Can we make a class both final and abstract at the same time? (answer)
+## Can we make a class both final and abstract at the same time? 
 No, you cannot apply both final and abstract keyword at the class same time because they are exactly opposite of each other. A final class in Java cannot be extended and you cannot use an abstract class without extending and make it a concrete class.
 
 ## Polymorphism
 Overloading = Compile Time Polymorphism (Static)
+
 Overriding = Run Time Polymorphism (Dynamic)
 
 ## Abstraction vs Polymorphism
-Abstraction is implemented using abstract class and interface while Polymorphism is supported by iverloading and overriding
+Abstraction is implemented using abstract class and interface while Polymorphism is supported by overloading and overriding
+
 Abstraction allows programmer to design sofrware better by thinking in general terms while Polymorphism allows programmers to defer choosing the code you want to execute at runtime. 
 
 
 ## Encapsulation 
-the practice of keeping fields within a class private, then providing access to them via public methods. 
+The practice of keeping fields within a class private, then providing access to them via public methods. 
+
 public methods and data can be accessed by at outside classes.
+
 protected methods and data can be accesseed by any subclass and its own class.
+
 private methods and data can only be accessed by its own class. 
 
 ## Inheritance
