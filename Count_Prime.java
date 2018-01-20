@@ -14,7 +14,6 @@ class Solution {
         			notPrime[i * j] = true;
         		}
         	}
-
         }
         return result;
     }

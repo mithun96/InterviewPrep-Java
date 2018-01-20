@@ -122,9 +122,9 @@ int fib(int i,){
 
 The time for the above solutions are `O(n)` and the space complexity for the second soltion much lower than the first one which has n size array.
 
-# Chapter 9: System Designa nd Scalability
+# Chapter 9: System Designa and Scalability
 
-There are good silutions and bad solution. There is no perfect solution 
+There are good solutions and bad solution. There is no perfect solution 
 
 ## Handling the questions
 
@@ -240,17 +240,17 @@ Binary search. we look for an element x in a sorted array by first comparing x t
 	example: for amazon, you have to make sure that the payments goes through, orders are placed before images and buttons work. 
 
 2. Knowing How the Piece Fit Together: 
-	Do you udnersatnd how software works? 
+	Do you understand how the software works? 
 	How it might fit into a greater ecosystem? 
-	Example: For google docs, got to test intergration with Gmail, plug-in and other componets, rather than open, edit and save. 
+	Example: For google docs, got to test intergration with Gmail, plug-in and other components, rather than open, edit and save. 
 
 3. Organization:
-	Do you approach the prblem in a structured manner? 
+	Do you approach the problem in a structured manner? 
 	Categorize tests into what the features should do. 
 
 4. Practicality: 
 	Can you actually create reasonable testing plans?
-	Example: if a user reports that the software crashes when they open a specifice image, and you just tell them to install the software that is not practical. Yours test need to feasible and realistic for the compnay to implement. 
+	Example: if a user reports that the software crashes when they open a specifice image, and you just tell them to install the software that is not practical. Your test need to feasible and realistic for the company to implement. 
 
 ## Questions to ask:
 

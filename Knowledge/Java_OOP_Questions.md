@@ -69,7 +69,7 @@ An abstract method is a method that is declared, but contains no implementation.
 Similar to an abstract class, the interface is also there to specify the contract/ functions (abstract methods). It supports OOP abstraction concepts as it defines abstract behaviours. The real use of the interface to define types to leverage Polymorphism. 
 
 ## Abstract Class vs Interface
-Abstract class can contain non-abstract methods but interface can not contain abstract methods. 
+Abstract class can contain non-abstract methods but interface can only contain abstract methods. 
 A class can not extend one class but can implement multiple interfaces. 
 
 
@@ -88,7 +88,7 @@ Overriding = Run Time Polymorphism (Dynamic)
 ## Abstraction vs Polymorphism
 Abstraction is implemented using abstract class and interface while Polymorphism is supported by overloading and overriding
 
-Abstraction allows programmer to design sofrware better by thinking in general terms while Polymorphism allows programmers to defer choosing the code you want to execute at runtime. 
+Abstraction allows programmer to design software better by thinking in general terms while Polymorphism allows programmers to defer choosing the code you want to execute at runtime. 
 
 
 ## Encapsulation 

@@ -65,10 +65,12 @@ class Trip {
           	Map.Entry mentry2 = (Map.Entry)its.next();
           	if(mentry2.getValue() > 0){
           		System.out.print(mentry2.getKey() + " pay " + mentry2.getValue()); 
-          		people.put(user.get(i), split + people.get(user.get(i)));
+          		people.put(people.get(i), split + people.get(user.get(i)));
+          	}
 
         }		
 	}
+
 
 }
 
