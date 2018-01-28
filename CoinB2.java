@@ -18,7 +18,7 @@ d = +1000
 
 import java.util.*;
 
-public class Coinbase2 {
+public class CoinB2 {
 
 	private static HashMap<String, Integer> ledger = new HashMap<>();
 
