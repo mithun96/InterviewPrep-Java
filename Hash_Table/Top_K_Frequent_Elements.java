@@ -22,6 +22,7 @@ class Solution{
 				map.put(num, map.get(num) + 1);
 		}
 
+		// Sort hashmap based on values
 		TreeMap<Integer, ArrayList<Integer>> tree = new TreeMap<>();
 		for(Map.Entry<Integer, Integer> entry: map.entrySet()){
 			if (!tree.containsKey(entry.getValue()))

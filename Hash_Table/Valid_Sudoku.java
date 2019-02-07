@@ -14,10 +14,10 @@ class Solution{
             HashSet<Character> rows = new HashSet<Character>();
             HashSet<Character> columns = new HashSet<Character>();
             HashSet<Character> cube = new HashSet<Character>();
-            for (int j = 0; j < 9;j++){
-                if(board[i][j]!='.' && !rows.add(board[i][j]))
+            for (int j = 0; j < 9; j++){
+                if(board[i][j] != '.' && !rows.add(board[i][j]))
                     return false;
-                if(board[j][i]!='.' && !columns.add(board[j][i]))
+                if(board[j][i] != '.' && !columns.add(board[j][i]))
                     return false;
                 int RowIndex = 3*(i/3);
                 int ColIndex = 3*(i%3);
