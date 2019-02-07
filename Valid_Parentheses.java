@@ -4,11 +4,12 @@ import java.util.*;
 	
 
 class Solution {
-	public void main (String[] args){
-		isValid("asd{}[]()askldj23[232]");
+	public static void main (String[] args){
+		boolean sol = isValid("asd{}[](askldj23[232]");
+		System.out.println("Answer : " + sol);
 	}
-	
-    public boolean isValid(String str){
+
+    public static boolean isValid(String str){
 		Stack<Character> stack = new Stack<Character>();
 
 		char[] chars = str.toCharArray();
