@@ -26,15 +26,16 @@ Here is a time efficient solution with O(n) extra space. The ugly-number sequenc
 import java.util.*;
 import java.lang.Math;
 
-class Soltuion{
+class Solution{
 
 	public static void main(String args[]){
 		int n = 150; 
-        UglyNumber obj = new UglyNumber(); 
-        System.out.println(obj.getNthUglyNo(n));
+        System.out.println(getNthUglyNo(n));
+        
+        return;
 	}
 
-	int getNthUglyNo(int n){
+	public static int getNthUglyNo(int n){
 		int ugly[] = new int[n];
 
 		int i2 = 0;
