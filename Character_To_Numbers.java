@@ -1,5 +1,5 @@
 
-//Given a column title as appear in an Excel sheet, return its corresponding column numbe
+//Given a column title as appear in an Excel sheet, return its corresponding column number
 
 import java.lang.String;
 class Solution {
@@ -13,8 +13,6 @@ class Solution {
         return result;
     }
 }
-
-
 
 
 import java.io.*;

@@ -1,75 +1,100 @@
+/* Question
+
+Design and implement a data structure for Least Recently Used (LRU) cache. It should support the 
+following operations: get and put.
+
+get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise 
+return -1.
+put(key, value) - Set or insert the value if the key is not already present. When the cache reached its 
+capacity, it should invalidate the least recently used item before inserting a new item.
+
+Follow up:
+Could you do both operations in O(1) time complexity?
+
+*/
+
 
 
 import java.util.*;
 
 class LRUCache {
-	HashMap<Integer, Node> map = new HashMap<Integer, Node>();
-	int cap; 
-
-	static Node head = new Node(-1, -1);
-	Node tail = new Node(-1, -1);
-
+	Map<Integer, Node> map = new HashMap<>();
+    Node head = new Node(-1, -1);
+    Node tail = new Node(-1, -1);
+    int capacity;
 
     public LRUCache(int capacity) {
-        this.cap = capacity;
-        joinNodes(head, tail);
+        join(head, tail);
+        this.capacity = capacity;
     }
-    
+
     public int get(int key) {
-        Node n = map.get(key);
-        if(n == null){
-        	return -1;
+        if (!map.containsKey(key)) {
+            return -1;
         }
-
-    	joinNodes(n.prev, n.next);
-    	moveToHead(n);
-        return n.val;
+        Node node = map.get(key);
+        remove(node);
+        moveToHead(node);
+        return node.val;
     }
-    
+
     public void put(int key, int value) {
-        Node n = map.get(key);
-        if(n == null){
-        	if(cap == map.size()){
-        		joinNodes(tail.prev.prev, tail);
-        		map.remove(tail.prev.key);
-        	}
-        	Node newNode = new Node(key, value);
-        	map.put(key, newNode);
-        	moveToHead(newNode);
+        if (map.containsKey(key)) {
+            Node node = map.get(key);
+            node.val = value;
+            remove(node);
+            moveToHead(node);
+        } else {
+            if (map.size() == capacity) {
+                if (tail.prev != head) {
+                    map.remove(tail.prev.key);
+                    remove(tail.prev);
+                }
+            }
+            Node node = new Node(key, value);
+            moveToHead(node); 
+            map.put(key, node);
+        }       
+    }   
+
+    public void join(Node n1, Node n2) {
+        n1.next = n2;
+        n2.prev = n1;
+    }
+
+    public void remove(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    public void moveToHead(Node node) {
+        Node next = head.next; 
+        join(head, node);
+        join(node, next);
+    }
+
+    class Node {
+        Node prev;
+        Node next;
+        int key;
+        int val;
+        public Node(int key, int val) {
+            this.key = key;
+            this.val = val;
         }
-        else {
-        	n.val = value;
-        	joinNodes(n.prev, n.next);
-    		moveToHead(n);
-        }
-    }
-
-    public static void moveToHead(Node n){
-//     	Node temp = head.next;
-//     	head.next = n;
-//     	n.next = temp;
-        joinNodes(n, head.next);
-        joinNodes(head, n);
-    }
-
-    public static void joinNodes(Node n1, Node n2){
-    	n1.next = n2;
-    	n2.prev = n1;
-    }
-    
-    
+    } 
 }
-class Node{
-    int val;
-    int key;
-    Node prev;
-    Node next;
+// class Node{
+//     int val;
+//     int key;
+//     Node prev;
+//     Node next;
 
-    public Node(int key, int val){
-        this.val = val;
-        this.key = key;
-    }
-}
+//     public Node(int key, int val){
+//         this.val = val;
+//         this.key = key;
+//     }
+// }
 
 /**
  * Your LRUCache object will be instantiated and called as such:

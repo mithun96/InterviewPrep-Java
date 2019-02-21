@@ -5,6 +5,10 @@ be partitioned into two subsets such that the sum of elements in both subsets is
 
 // Solution is the same as a KnapSack problem (DP)
 
+/* Explaination
+    If you subtract the number from the target and that value can be formed (is true in the array/ memory) 
+    then the target can be reached with this number. 
+*/
 public boolean canPartition(int[] nums) {
     int sum = 0;
     

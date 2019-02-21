@@ -1,4 +1,4 @@
-// some running faster than another guy question
+// player1 running faster than player2 question
 /*
 There are two kangaroos on a number line ready to jump in the positive direction 
 (i.e, toward positive infinity). The first kangaroo starts at location  and moves at a 
@@ -8,6 +8,18 @@ you determine if they'll ever land at the same location at the same time?
 */
 
 
+// Quick math to solve the problem => O(i)
+public void will_catchup2(int x1, int v1, int x2, int v2){
+
+    if((x1 - x2) % (v2 - v1) == 0){
+        return true;
+    }
+    else 
+        return false;
+}
+
+
+// Brute Force 
 public void will_catchup(int x1, int v1, int x2, int v2){
 	int k1 = x1;
     int k2 = x2;
@@ -27,11 +39,3 @@ public void will_catchup(int x1, int v1, int x2, int v2){
 	return false;	
 }
 
-public void will_catchup2(int x1, int v1, int x2, int v2){
-
-	if((x1 - x2) % (v2 - v1) == 0){
-		return true;
-	}
-	else 
-		return false;
-}

@@ -22,6 +22,7 @@ class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         return construct(nums, 0, nums.length);
     }
+
     public TreeNode construct(int[] nums, int l, int r) {
         if (l == r)
             return null;
@@ -31,6 +32,7 @@ class Solution {
         root.right = construct(nums, max_i + 1, r);
         return root;
     }
+
     public int max(int[] nums, int l, int r) {
         int max_i = l;
         for (int i = l; i < r; i++) {
@@ -39,5 +41,9 @@ class Solution {
         }
         return max_i;
     }
-
 }
+
+
+
+
+

@@ -46,6 +46,7 @@ class Solution{
         String longOdd = "";
 
         for (int i = 0; i < len; i++){  
+            // Check Palindrone inside to out
             
             //Even Palindrones
             int bufff = 0;

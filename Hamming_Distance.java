@@ -1,10 +1,9 @@
 /*
-The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+The Hamming distance between two integers is the number of positions at which the corresponding bits 
+are different.
 
 Given two integers x and y, calculate the Hamming distance.
 */
-
-
 
 
 class Solution {
@@ -20,7 +19,7 @@ class Solution {
 		int result = 0;
 
         for (int i = 0; i < 31; i++){
-        	if (xBin.charAt(i) != (yBin.charAt	(i)))
+        	if (xBin.charAt(i) != (yBin.charAt(i)))
         		result++;
         }
         return result;
