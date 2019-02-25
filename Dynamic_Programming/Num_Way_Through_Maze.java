@@ -13,7 +13,6 @@ From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
 
 The idea is to modify the given grid[][] so that grid[i][j] contains count of paths to 
 reach (i, j) from (0, 0) if (i, j) is not a blockage, else grid[i][j] remains -1.
-
 */
 
 // Using Dynanmic Programming to Solve. DFS is too slow!!
@@ -74,14 +73,12 @@ class GFG
                 // If we can reach maze[i][j] from  
                 // maze[i-1][j] then increment count. 
                 if (maze[i - 1][j] > 0) 
-                    maze[i][j] = (maze[i][j] +  
-                                 maze[i - 1][j]); 
+                    maze[i][j] = (maze[i][j] + maze[i - 1][j]); 
       
                 // If we can reach maze[i][j] from 
                 //  maze[i][j-1] then increment count. 
                 if (maze[i][j - 1] > 0) 
-                    maze[i][j] = (maze[i][j] +  
-                                  maze[i][j - 1]); 
+                    maze[i][j] = (maze[i][j] + maze[i][j - 1]); 
             } 
         } 
       

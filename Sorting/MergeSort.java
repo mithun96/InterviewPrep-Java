@@ -1,4 +1,6 @@
-
+// Time: O(nlog(n))
+// Space: O(n) used for helper array
+// Description: Divide arary in halves and then merge (sort) from bottom up. 
 
 class MergeSort
 {
@@ -6,13 +8,14 @@ class MergeSort
     public static void main(String args[])
     {
         int arr[] = {12, 11, 13, 5, 6, 7};
+        int[] helper = new int[arr.length];
   
-        sort(arr, 0, arr.length-1);
+        mergeSort(arr, helper, 0, arr.length-1);
     }
 
     // Main function that sorts arr[l..r] using
     // merge()
-    static void sort(int arr[], int l, int r)
+    static void mergeSort(int arr[], int helper[] int l, int r)
     {
         if (l < r)
         {
@@ -20,11 +23,11 @@ class MergeSort
             int m = (l+r)/2;
  
             // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr , m+1, r);
+            mergeSort(arr, helper, l, m);
+            mergeSort(arr , helper, m+1, r);
  
             // Merge the sorted halves
-            merge(arr, l, m, r);
+            merge(arr, helper, l, m, r);
         }
     }
 
@@ -32,7 +35,55 @@ class MergeSort
      // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
     // Second subarray is arr[m+1..r]
-    static void merge(int arr[], int l, int m, int r)
+    static void merge(int arr[], int helper[], int l, int m, int r)
+    {
+        /*Copy data to helper arrays*/
+        for(int i = l, i < r; i++){
+            helper[i] = arr[i];
+        }
+ 
+        /* Merge the arrays */
+ 
+        // Initial indexes of first and second subarrays
+        int index = l;
+        int leftIndex = l;
+        int rightIndex = m + 1;
+
+        // Initial index of merged subarry array
+        int k = l;
+        while (leftIndex <= m && rightIndex <= r)
+        {
+            if (helper[leftIndex] <= helper[rightIndex])
+            {
+                arr[index] = helper[leftIndex++];
+            }
+            else
+            {
+                arr[index] = helper[rightIndex++];
+            }
+            index++;
+        }
+ 
+        /* Copy remaining elements of left side ONLY 
+            [1, 4, 5 || 2, 8 , 9]
+            in the example above, the right number don't have to be moved again!
+        */
+        int remaining = middle - leftIndex;
+        for(int i = 0; i <= remaining; i++){
+            arr[index + i] = helper[leftIndex + i];
+        }
+
+        // or can do this way. 
+        // for(int j = leftIndex; i < m; i++){
+        //     arr[index++] = helper[leftIndex++];
+        }
+    }
+
+    // This method will take more space but easier to understand
+    // Merges two subarrays of arr[].
+    // First subarray is arr[l..m]
+    // Second subarray is arr[m+1..r]
+    static void merge(int arr[], int helper[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;

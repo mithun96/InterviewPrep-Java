@@ -17,6 +17,7 @@ public class Solution {
 	public int findCircleNum(int[][] M){
 		boolean[] visited = new boolean[M.length];
 		Arrays.fill(visited, false);
+		
 		int result = 0;
 
 		for(int i = 0; i < M.length; i++){
