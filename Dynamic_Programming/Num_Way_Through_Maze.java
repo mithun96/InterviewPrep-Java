@@ -31,53 +31,59 @@ class GFG
         // there is no way of moving anywhere 
         if (maze[0][0]==-1) 
             return 0; 
+
+        // Set origin to 1
+        maze[0][0] = 1;
+
+
+        // // Initializing the leftmost column 
+        // for (int i = 0; i < R; i++) 
+        // { 
+        //     if (maze[i][0] == 0) 
+        //         maze[i][0] = 1; 
       
-        // Initializing the leftmost column 
-        for (int i = 0; i < R; i++) 
-        { 
-            if (maze[i][0] == 0) 
-                maze[i][0] = 1; 
+        //     // If we encounter a blocked cell  
+        //     // in leftmost row, there is no way  
+        //     // of visiting any cell directly below it. 
+        //     else
+        //         break; 
+        // } 
       
-            // If we encounter a blocked cell  
-            // in leftmost row, there is no way  
-            // of visiting any cell directly below it. 
-            else
-                break; 
-        } 
+        // // Similarly initialize the topmost row 
+        // for (int i =1 ; i< C ; i++) 
+        // { 
+        //     if (maze[0][i] == 0) 
+        //         maze[0][i] = 1; 
       
-        // Similarly initialize the topmost row 
-        for (int i =1 ; i< C ; i++) 
-        { 
-            if (maze[0][i] == 0) 
-                maze[0][i] = 1; 
-      
-            // If we encounter a blocked cell in  
-            // bottommost row, there is no way of  
-            // visiting any cell directly below it. 
-            else
-                break; 
-        } 
+        //     // If we encounter a blocked cell in  
+        //     // bottommost row, there is no way of  
+        //     // visiting any cell directly below it. 
+        //     else
+        //         break; 
+        // } 
+
+
       
         // The only difference is that if a cell  
         // is -1, simply ignore it else recursively  
         // compute count value maze[i][j] 
-        for (int i = 1; i < R; i++) 
+        for (int i = 0; i < R; i++) 
         { 
-            for (int j = 1; j <C ; j++) 
+            for (int j = 0; j <C ; j++) 
             { 
                 // If blockage is found,  
                 // ignore this cell  
                 if (maze[i][j] == -1) 
                     continue; 
       
-                // If we can reach maze[i][j] from  
+                // If we can reach  maze[i][j] from  
                 // maze[i-1][j] then increment count. 
-                if (maze[i - 1][j] > 0) 
+                if (i - 1 >= 0 && maze[i - 1][j] > 0) 
                     maze[i][j] = (maze[i][j] + maze[i - 1][j]); 
       
                 // If we can reach maze[i][j] from 
                 //  maze[i][j-1] then increment count. 
-                if (maze[i][j - 1] > 0) 
+                if (j - 1 >= 0 && maze[i][j - 1] > 0) 
                     maze[i][j] = (maze[i][j] + maze[i][j - 1]); 
             } 
         } 

@@ -69,6 +69,7 @@ public class Number_of_Islands {
 
 	private void DFSMarking(char[][] grid, int i, int j) {
 	    if (i < 0 || j < 0 || i >= n || j >= m || grid[i][j] != '1') return;
+	    
 	    grid[i][j] = '0';
 	    DFSMarking(grid, i + 1, j);
 	    DFSMarking(grid, i - 1, j);

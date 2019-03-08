@@ -7,23 +7,23 @@ import java.util.*;
 // representation 
 class Graph 
 { 
-    // private int V;   // No. of vertices 
-    // private LinkedList<Integer> adj[]; //Adjacency Lists 
+    private int V;   // No. of vertices 
+    private LinkedList<Integer> adj[]; //Adjacency Matrix (Array of LinkedList) 
   
-    // // Constructor 
-    // Graph(int v) 
-    // { 
-    //     V = v; 
-    //     adj = new LinkedList[v]; 
-    //     for (int i=0; i<v; ++i) 
-    //         adj[i] = new LinkedList(); 
-    // } 
+    // Constructor 
+    public Graph(int v) 
+    { 
+        V = v; 
+        adj = new LinkedList[v]; 
+        for (int i=0; i<v; ++i) 
+            adj[i] = new LinkedList(); 
+    } 
   
-    // // Function to add an edge into the graph 
-    // void addEdge(int v,int w) 
-    // { 
-    //     adj[v].add(w); 
-    // } 
+    // Function to add an edge into the graph 
+    void addEdge(int v,int w) 
+    { 
+        adj[v].add(w); 
+    } 
   
     // prints BFS traversal from a given source s 
     void BFS(int s) 
