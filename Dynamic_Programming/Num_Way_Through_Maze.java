@@ -9,7 +9,7 @@ From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
 
 
 
-/*Explaination
+/* Explaination
 
 The idea is to modify the given grid[][] so that grid[i][j] contains count of paths to 
 reach (i, j) from (0, 0) if (i, j) is not a blockage, else grid[i][j] remains -1.
