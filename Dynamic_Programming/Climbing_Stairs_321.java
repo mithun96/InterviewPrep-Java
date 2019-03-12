@@ -13,6 +13,7 @@ staircase.
             return 0;
         else if(n < 3)
             return n;
+        
         int stairs[] = new int[n + 1];
         Arrays.fill(stairs, 0);
 

@@ -104,13 +104,112 @@ private methods and data can only be accessed by its own class.
 Allows programmers to create new classes that share some of the attributres of exisiting classes. Allows to reuse work without reinventing the wheel. 
 
 
+# Cracking the Code Questions? 
+
+## 1. In terms of inheritance, what is teh effect of keeping a constuctor private? 
+
+Declaring a constructor pricate on class A means that you can only access the (private) constructor if you could also access A's private methods. A's inner classes can access it. Additionally, if A is an inncer class of Q, then Q's inner classes can access it too. 
+
+This is directly implication for inheritance because a subclass calls its parents construcutor. The class A can be inherited but only by its own or its parents's inner class. 
+
+## 2. In Java, Does the finally block get executed if we insert a return statement inside the try block of a try-catch-finally? 
+
+Yes, it will get executed. The finally block gets executed when the try block exits. Even when we attempt to exit within the try block (via a return statement, continue, break, exception), the finally block will still be executed. 
+
+Note, there are some cases where the finally block will not get executed, such as following: 
+1. if the cirtual machine exits during try/catch block excution 
+2. if the thread which is executing during the try/catch block gets killed. 
+
+## 3. What is the difference between final, finally and finalize? 
+
+#### Final
+final is ised conrtol whether a variable method or class is changeable. 
+
+final variable can not be changed
+final function can not be overridden 
+final class can not be subclassed
+
+#### finally
+Finally keyword is used in a try/catch block to ensure that a segment of code is always execited
+
+the finally block is often used to write the clean up code. It will be executed after the try and catch block but before control transfers back to its origin. 
+
+#### finalize() 
+finalize() method is called by the garbage collector once it determines that no more reference exists. 
+
+The automatic garbage collector calls the finalize() method just before actaully destroying the object. A class can therefore override the finalize() method from the Object class in order to define custom behavior during garbage collection. 
+
+```
+protected void finalize() throws Throwable {
+	/* Close open files, relaease resources, etc... */
+}
+```
+
+## 4. ******* Explain the diference between templates in C++ and generics in Java? 
+(Read page 435-436 Cracking Code)
+
+Althrough generics and templates look the same in many ways, they are very different. There doing the same thing. In both languages they lets you do something like: ``` List<String> ```. But they difference in how and why they do it. 
+
+In java, the implementation of generics is rooted in an idea of "type erasure". This technique eliminates the parameterized types when source code is translated to the Java Virtual Machine (JVM) byte code. 
+
+```
+Vector<String> vector new Vector<String>();
+vector.add(new String("hello"));
+String str = vector.get(0);
+
+// =======under the hood this will happen at compile time =======
+
+Vectorvector new Vector();
+vector.add(new String("hello"));
+String str = (String) vector.get(0);
+
+```
+
+In java, static variables are shared across instances of MyClass, regarless of the different type parameters.
+
+the differences: 
+1. C++ can use primitive types like int. Java has to use Integer
+2. ...
+3. ...
+4. ...
+5. In java, all instance of MyClass, regarfless of the ir type parameters, are the same type. The type parameters are erased at runtime. In C++, instances with different types parameters are different types. 
 
 
+## 5. reeMap vs. HashMap vs. LinkedHashMap
+### Explain the differences between TreeMap, HashMap and LinkedHashMap. Provide an example of when each one would be best? 
+
+HashMap: 
+O(1) lookup and insertion 
+Keys are not sorted 
+implemented by an array of linked lists
+used by default unless need some kind of ordering/ sorting. 
+
+TreeMap:
+O(logN) loopup and insertion 
+Keys are sorted. So can iterate through the keys in sorted order. The keys must implement the Comparable interface 
+Implemeted by a Red-Black Tree
+Used when you need to get the keys back in their true/natural order. 
+
+LinkedHashMap:
+O(1) lookup and insertion 
+Keys areordered by their insertion order. 
+implemented by doubly linked buckets. 
+Used when you need to get the keys back in insertion order. 
 
 
+## 6. Explain what object reflection is in Java and why it is useful? 
+Object reflection is a featuer in Java that provides a way to get reflective information about java classes and objects and perform operations such as:
+1. getting info about the methods and feilds present inside the class at RUNTIME 
+2. Create new instantce of a class
+3. Getting and setting the obejct fields directly by getting field reference, regardless of what the access modifer is. 
 
+used for the following reasons:
+1. It can help you observe or manupulate the runtime behavior of apllication 
+2. IT can help you debug or test programs as you have direct access to methods, construcutors and fields. 
+3. You can call methods by name when you don't know the method in advance. For example, we may let the user pass in a class name, paraamters for the constructor and a method name. We can then use this info to create an object and call a method. Doing these operation without reflection would require a complex series of it statements. 
 
-
+## 7. Lambda Expression 
+Learned it in ECS 160 but have to relearn it!
 
 
 

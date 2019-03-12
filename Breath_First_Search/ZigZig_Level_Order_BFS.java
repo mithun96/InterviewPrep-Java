@@ -5,13 +5,55 @@ import java.util.*;
 class BinaryTree { 
     Node rootNode; 
       
+    ArrayList<LinkedList<TreeNode>> printZigZagTraversal2(TreeNode root) { 
+          
+        // if null then return 
+        if (root == null) { 
+            return; 
+        } 
+
+        ArrayList<LinkedList<TreeNode>> ans = null;
+
+        LinkedList<TreeNode> curr = null;
+
+        curr.add(root);
+
+        while(curr.size() > 0){  // each iteration of the loop is a new level
+            ans.add(curr);
+            LinkedList<TreeNode> prev = curr;
+            curr = new LinkedList<TreeNode>();
+
+            while(TreeNode node : prev) {
+                
+                if(ans.size() % 2 == 0){
+                    if(node.left != null){
+                        curr.add(node.left);
+                    }
+                    if(node.right != null){
+                        curr.add(node.right);
+                    }
+                }
+                else{
+                    if(node.right != null){
+                        curr.add(node.right);
+                    }
+                    if(node.left != null){
+                        curr.add(node.left);
+                    }
+                }
+
+            }
+
+        }
+        return ans;
+    }
     // function to print the 
     // zigzag traversal 
     void printZigZagTraversal() { 
           
         // if null then return 
         if (rootNode == null) { 
-        return; 
+            return; 
         } 
       
         // declare two stacks 
@@ -60,6 +102,8 @@ class BinaryTree {
             } 
         } 
     } 
+
+
 } 
   
 public class zigZagTreeTraversal { 

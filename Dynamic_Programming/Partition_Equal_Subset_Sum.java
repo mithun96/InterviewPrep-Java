@@ -19,6 +19,7 @@ public boolean canPartition(int[] nums) {
     if ((sum % 2) == 1) {
         return false;
     }
+    
     sum /= 2;
     
     int n = nums.length;

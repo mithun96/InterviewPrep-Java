@@ -23,7 +23,7 @@ class CatalnNumber {
   
     // A recursive function to find nth catalan number 
   
-    int catalan(int n) { 
+    int calCatalan(int n) { 
         int res = 0; 
           
         // Base case 
@@ -31,7 +31,7 @@ class CatalnNumber {
             return 1; 
         } 
         for (int i = 0; i < n; i++) { 
-            res += catalan(i) * catalan(n - i - 1); 
+            res += calCatalan(i) * calCatalan(n - i - 1); 
         } 
         return res; 
     } 
@@ -39,7 +39,7 @@ class CatalnNumber {
     public static void main(String[] args) { 
         CatalnNumber cn = new CatalnNumber(); 
         for (int i = 0; i < 10; i++) { 
-            System.out.print(cn.catalan(i) + " "); 
+            System.out.print(calCatalan(i) + " "); 
         } 
     } 
 } 
@@ -50,7 +50,7 @@ class CatalnNumber {
   
     // A recursive function to find nth catalan number 
   
-    int catalan(int n) { 
+    public static int calCatalan(int n) { 
         int catalan[] = new int[n+1];
         catalan[0] = 1;
         catalan[1] = 1;
@@ -58,16 +58,15 @@ class CatalnNumber {
         for (int i = 2; i < n; i++) { 
         	catalan[i] = 0;
         	for(int j = 0; j < i; j++){
-        		cat[i] += catalan[j] * catalan[i - j - 1];
+        		catalan[i] += catalan[j] * catalan[i - j - 1];
         	}
         } 
         return catalan[n]; 
     } 
   
     public static void main(String[] args) { 
-        CatalnNumber cn = new CatalnNumber(); 
         for (int i = 0; i < 10; i++) { 
-            System.out.print(cn.catalan(i) + " "); 
+            System.out.print(calCatalan(i) + " "); 
         } 
     } 
 } 

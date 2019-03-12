@@ -58,3 +58,14 @@ public int numSquares(int n) {
 	}		
 	return dp[n];
 }
+
+
+
+
+
+
+
+
+
+
+

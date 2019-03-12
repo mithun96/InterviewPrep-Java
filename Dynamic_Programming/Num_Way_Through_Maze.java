@@ -105,6 +105,29 @@ class GFG
         System.out.println (countPaths(maze)); 
       
     } 
-  
+
+    // Solution use DFS!! (Slower than DP)
+    public static int countDFS(int[][] maze, int i, int j){
+        if(!isValid(maze, i, j)){
+            return 0;
+        }
+
+        if(i == maze.length -1 && j == maze[0].length -1){
+            return 1;
+        }
+
+        int ans = 0; 
+        ans = ans + countDFS(maze, i + 1, j);
+        ans = ans + countDFS(maze, i, j + 1);
+
+        return ans;
+    }
+
+    public static boolean isValid(int[][] maze, int i, int j){
+        if(i >= 0 && i < maze.length && j >=0 && j < maze[0].length && maze[i][j] == 0){
+            return true;
+        }
+        return false;
+    }
 } 
   
