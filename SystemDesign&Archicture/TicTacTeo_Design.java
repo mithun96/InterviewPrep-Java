@@ -30,8 +30,6 @@ class TicTacToe {
             val = -1;
         }
 
-        // TO DO: Check if valid move (Might have to store old moves)
-
         rows[row] += val;
         cols[col] += val;
 
