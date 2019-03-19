@@ -13,11 +13,11 @@
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
-        bfs(root, result, 0);
+        dfs(root, result, 0);
         return result;
     }
 
-    public void bfs(TreeNode root, List<List<Integer>> result, int level){
+    public void dfs(TreeNode root, List<List<Integer>> result, int level){
     	if(root == null){
     		return;
     	}
@@ -35,7 +35,7 @@ class Solution {
     		curList.add(0, root.val);
     	} 
 
-    	bfs(root.left, result, level + 1);
-    	bfs(root.right, result, level + 1);
+    	dfs(root.left, result, level + 1);
+    	dfs(root.right, result, level + 1);
     }
 }

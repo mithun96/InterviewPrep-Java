@@ -21,6 +21,7 @@ Note: next() and hasNext() should run in average O(1) time and uses O(h) memory,
 public class BSTIterator {
     
     private Stack<TreeNode> stack;
+    
     public BSTIterator(TreeNode root) {
         stack = new Stack<>();
         TreeNode cur = root;

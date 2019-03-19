@@ -15,6 +15,36 @@ of this node's descendants. The tree s could also be considered as a subtree of 
  *     TreeNode(int x) { val = x; }
  * }
  */
+ 
+ /* Most efficent solution 
+
+Time complexity : O(m*n). In worst case(skewed tree) traverse function takes O(m*n)O(m∗n) time.
+
+Space complexity : O(n). The depth of the recursion tree can go upto n. n refers to the number of nodes in ss.
+*/
+
+public class Solution {
+    public boolean isSubtree(TreeNode s, TreeNode t) {
+        return traverse(s,t);
+    }
+    
+    public boolean traverse(TreeNode s,TreeNode t)
+    {
+        return  s!=null && ( equals(s,t) || traverse(s.left,t) || traverse(s.right,t));
+    }
+
+    public boolean equals(TreeNode x,TreeNode y)
+    {
+        if(x==null && y==null)
+            return true;
+        if(x==null || y==null || x.val != y.val)
+            return false;
+        return equals(x.left,y.left) && equals(x.right,y.right);
+    }
+}
+
+
+// Less efficient solution 
 public class Solution {
     //HashSet < String > trees = new HashSet < > ();
 

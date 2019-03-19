@@ -9,7 +9,6 @@ Otherwise, the NOT null node will be used as the node of new tree.
 */
 
 
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -40,3 +39,5 @@ class Solution {
         return temp;
     }
 }
+
+
