@@ -21,14 +21,16 @@ Input:
 
 
 public class FileSystem {
-    class Dir {
-        HashMap < String, Dir > dirs = new HashMap < > ();
-        HashMap < String, String > files = new HashMap < > ();
-    }
     Dir root;
     public FileSystem() {
         root = new Dir();
     }
+
+    class Dir {
+        HashMap < String, Dir > dirs = new HashMap<>();
+        HashMap < String, String > files = new HashMap<>();
+    }
+
     public List < String > ls(String path) {
         Dir t = root;
         List < String > files = new ArrayList < > ();
@@ -79,14 +81,20 @@ public class FileSystem {
     }
 }
 
-/**
- * Your FileSystem object will be instantiated and called as such:
- * FileSystem obj = new FileSystem();
- * List<String> param_1 = obj.ls(path);
- * obj.mkdir(path);
- * obj.addContentToFile(filePath,content);
- * String param_4 = obj.readContentFromFile(filePath);
- */
+class Solution {
+    public static void main(String[] args){
+        String path = "/a/b/c";
+        String filePath = "/a/b/c/file";
+        String content = "file content xxx";
+
+        FileSystem obj = new FileSystem();
+        List<String> param_1 = obj.ls(path);
+        obj.mkdir(path);
+        obj.addContentToFile(filePath,content);
+        String param_4 = obj.readContentFromFile(filePath);
+    }
+}
+
 
 /*
 Performance Analysis

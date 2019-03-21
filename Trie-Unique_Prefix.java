@@ -37,25 +37,22 @@ and if a prefix is not prefix of any other string, then print it.
 */
 
 
-
+import java.util.*;
 // Java program to print all prefixes that 
 // uniquely represent words. 
 class Solution { 
-       
-    static final int MAX  = 256; 
-       
+              
     // Maximum length of an input word 
     static final int MAX_WORD_LEN = 500; 
        
     // Trie Node. 
     static class TrieNode 
     { 
-        TrieNode[] child = new TrieNode[MAX]; 
+        HashMap<Character, TrieNode> child;
         int freq;  // To store frequency 
         TrieNode() { 
             freq =1; 
-            for (int i = 0; i < MAX; i++) 
-                child[i] = null; 
+            child = new HashMap<>();
         } 
     } 
     static TrieNode root; 
@@ -70,18 +67,22 @@ class Solution {
         // Traversing over the length of given str. 
         for (int level = 0; level<len; level++) 
         { 
-            // Get index of child node from current character 
+            // Get char of child node from current character 
             // in str. 
-            int index = str.charAt(level); 
-       
+            char c =str.charAt(level); 
+
             // Create a new child if not exist already 
-            if (pCrawl.child[index] == null) 
-                pCrawl.child[index] = new TrieNode(); 
-            else
-               (pCrawl.child[index].freq)++; 
-       
+            if(pCrawl.child.containsKey(c)){
+                TrieNode temp = pCrawl.child.get(c);
+                temp.freq++;
+                pCrawl.child.put(c, temp);
+            }
+            else{
+                pCrawl.child.put(c, new TrieNode());
+            }
+
             // Move to the child 
-            pCrawl = pCrawl.child[index]; 
+            pCrawl = pCrawl.child.get(c);
         } 
     } 
        
@@ -106,14 +107,11 @@ class Solution {
             return; 
         } 
        
-        for (int i=0; i<MAX; i++) 
-        { 
-           if (root.child[i] != null) 
-           { 
-               prefix[ind] = (char) i; 
-               findPrefixesUtil(root.child[i], prefix, ind+1); 
-           } 
-        } 
+        for(char c : root.child.keySet()){
+            prefix[ind] = c;
+            findPrefixesUtil(root.child.get(c), prefix, ind+1);
+        }
+
     } 
        
     // Function to print all prefixes that uniquely 

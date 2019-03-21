@@ -14,7 +14,6 @@ Could you do both operations in O(1) time complexity?
 */
 
 
-
 import java.util.*;
 
 class LRUCache {
@@ -78,6 +77,7 @@ class LRUCache {
         Node next;
         int key;
         int val;
+        
         public Node(int key, int val) {
             this.key = key;
             this.val = val;

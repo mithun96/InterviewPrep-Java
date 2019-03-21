@@ -20,8 +20,6 @@ import java.io.*;
   
 class GFG  
 { 
-    static int R = 4; 
-    static int C = 4; 
       
     // Returns count of possible paths in  
     // a maze[R][C] from (0,0) to (R-1,C-1) 
@@ -67,9 +65,9 @@ class GFG
         // The only difference is that if a cell  
         // is -1, simply ignore it else recursively  
         // compute count value maze[i][j] 
-        for (int i = 0; i < R; i++) 
+        for (int i = 0; i < maze.length; i++) 
         { 
-            for (int j = 0; j <C ; j++) 
+            for (int j = 0; j < maze[0].length; j++) 
             { 
                 // If blockage is found,  
                 // ignore this cell  

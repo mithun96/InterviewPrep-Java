@@ -11,6 +11,9 @@ class Trie{
 	public static void addWord(String str){
         char[] chars = str.toCharArray();
         TrieNode node = root;
+        if(str != null){
+        	root.size++;
+        }
 
         for(char c : chars){
             if(node.child[(int)c] != null){
@@ -21,6 +24,7 @@ class Trie{
             }
             node = node.child[(int)c];
         }
+
     }
 
     class TrieNode{

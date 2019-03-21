@@ -2,6 +2,11 @@
 
 class MyHashMap {
     private static final int SIZE = 32;
+    private Entry[] table;
+
+    public MyHashMap() {
+        table = new Entry[SIZE];
+    }
 
     class Entry {
         String key;
@@ -12,12 +17,6 @@ class MyHashMap {
             this.value = value;
             next = null;
         }
-    }
-
-    private Entry[] table;
-
-    public MyHashMap() {
-        table = new Entry[SIZE];
     }
 
     public void put(String key, String value) {
