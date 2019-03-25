@@ -1,5 +1,6 @@
 /* Question
-Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
+Given a positive integer n, find the least number of perfect square numbers which sum to n.
+(for example, 1, 4, 9, 16, ...) 
 
 Example 1:
 
@@ -47,6 +48,7 @@ public int numSquares(int n) {
 	int[] dp = new int[n + 1];
 	Arrays.fill(dp, Integer.MAX_VALUE);
 	dp[0] = 0;
+	
 	for(int i = 1; i <= n; ++i) {
 		int min = Integer.MAX_VALUE;
 		int j = 1;

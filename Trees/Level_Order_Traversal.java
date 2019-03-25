@@ -20,6 +20,7 @@ import java.util.LinkedList;
 
 /* Class to print Level Order Traversal */
 class BinaryTree { 
+    Node root;
     
     /* Given a binary tree. Print its nodes in level order 
      using array for implementing queue  */

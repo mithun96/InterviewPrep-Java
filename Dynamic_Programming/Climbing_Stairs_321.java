@@ -7,6 +7,32 @@ staircase.
 
 
 
+// Dynmaic Programming
+    static int stepPerms(int n) {
+        if(n <= 0)
+            return 0;
+        else if(n < 3)
+            return n;
+        int stairs[] = new int[n + 1];
+
+        stairs[0] = 1;
+        stairs[1] = 1;
+        stairs[2] = 2;
+
+        for(int i = 3; i <= n; i++){
+            stairs[i] = stairs[i - 1] + stairs[i - 2] + stairs[i - 3] ;
+        
+            System.out.println(stairs[i]);
+        }
+
+        return stairs[n];
+    }
+   
+//==========================================================================================================
+//==========================================================================================================
+//==========================================================================================================
+ 
+
 // Recursion + Memory
     static int stepPerms(int n) {
         if(n <= 0)
@@ -37,28 +63,3 @@ staircase.
         return stairs[n];
     }
 
-//==========================================================================================================
-//==========================================================================================================
-//==========================================================================================================
-
-
-// Dynmaic Programming
-    static int stepPerms(int n) {
-        if(n <= 0)
-            return 0;
-        else if(n < 3)
-            return n;
-        int stairs[] = new int[n + 1];
-
-        stairs[0] = 1;
-        stairs[1] = 1;
-        stairs[2] = 2;
-
-        for(int i = 3; i <= n; i++){
-            stairs[i] = stairs[i - 1] + stairs[i - 2] + stairs[i - 3] ;
-        
-            System.out.println(stairs[i]);
-        }
-
-        return stairs[n];
-    }

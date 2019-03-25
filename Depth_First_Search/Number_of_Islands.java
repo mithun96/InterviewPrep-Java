@@ -10,18 +10,15 @@ or vertically. You may assume all four edges of the grid are all surrounded by w
 
 public class Number_of_Islands {
 
-	private int n;
-	private int m;
-
 
 	public int numIslands(char[][] grid) {
 	    int count = 0;
-	    n = grid.length;
+	    int n = grid.length;
 
 	    if (n == 0) 
 	    	return 0;
 
-	    m = grid[0].length;
+	    int m = grid[0].length;
 	    
 	    for (int i = 0; i < n; i++){
 	        for (int j = 0; j < m; j++)
@@ -34,7 +31,8 @@ public class Number_of_Islands {
 	}
 
 	private void DFSMarking(char[][] grid, int i, int j) {
-	    if (i < 0 || j < 0 || i >= n || j >= m || grid[i][j] != '1') return;
+	    if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] != '1') 
+        return;
 	    
 	    grid[i][j] = '0';
 	    DFSMarking(grid, i + 1, j);
@@ -49,6 +47,15 @@ public class Number_of_Islands {
 
 // Breath First Search (BFS)
 class Solution {
+  class Node {
+    int x;
+    int y;
+    public Node(int i, int j){
+      x = i;
+      y = j;
+    }
+  }
+
   public int numIslands(char[][] grid) {
     if (grid == null || grid.length == 0) {
       return 0;
@@ -63,26 +70,28 @@ class Solution {
         if (grid[r][c] == '1') {
           ++num_islands;
           grid[r][c] = '0'; // mark as visited
-          Queue<Integer> neighbors = new LinkedList<>();
-          neighbors.add(r * nc + c);
+          
+          Queue<Node> neighbors = new LinkedList<>();
+          neighbors.add(new Node(r, c));
+
           while (!neighbors.isEmpty()) {
-            int id = neighbors.remove();
-            int row = id / nc;
-            int col = id % nc;
+            Node node = neighbors.remove();
+            int row = node.x;
+            int col = node.y;
             if (row - 1 >= 0 && grid[row-1][col] == '1') {
-              neighbors.add((row-1) * nc + col);
+              neighbors.add(new Node(row - 1, col));
               grid[row-1][col] = '0';
             }
             if (row + 1 < nr && grid[row+1][col] == '1') {
-              neighbors.add((row+1) * nc + col);
+              neighbors.add(new Node(row + 1, col));
               grid[row+1][col] = '0';
             }
             if (col - 1 >= 0 && grid[row][col-1] == '1') {
-              neighbors.add(row * nc + col-1);
+              neighbors.add(new Node(row, col - 1));
               grid[row][col-1] = '0';
             }
             if (col + 1 < nc && grid[row][col+1] == '1') {
-              neighbors.add(row * nc + col+1);
+              neighbors.add(new Node(row, col + 1));
               grid[row][col+1] = '0';
             }
           }

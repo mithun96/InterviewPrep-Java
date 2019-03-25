@@ -28,9 +28,9 @@ public boolean canPartition(int[] nums) {
     dp[0] = true;
     
     for (int num : nums) {
-        for (int i = sum; i > 0; i--) {
-            if (i >= num) {
-                dp[i] = dp[i] || dp[i-num];
+        for (int target = sum; target > 0; target--) {
+            if (target >= num) {
+                dp[target] = dp[target] || dp[target-num];
             }
         }
     }

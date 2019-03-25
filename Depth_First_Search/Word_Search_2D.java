@@ -1,13 +1,13 @@
 class Solution {
 
 	public static void main(String[] args){
-		char[][] b = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]];
+		char[][] b = new char[][]{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
 		boolean ans = exist(b, "ABCCED");
 		System.out.println(ans);
 	}
   
     
-    public boolean exist(char[][] board, String word) {
+    public static boolean exist(char[][] board, String word) {
         
         int len = board.length;
         int wid = board[0].length;
@@ -29,9 +29,14 @@ class Solution {
     	if(l >= board.length || l < 0 || w >= board[0].length || w < 0 || index >= letters.length || board[l][w] != letters[index]){
     		return 0;
     	}
-       if (index == letters.length-1) {
+       if (index == letters.length - 1) {
            return 1;
        }
+
+       if(letters[index] != board[l][w]){
+            return 0;
+       }
+
     	char temp = board[l][w];
     	board[l][w] = '$';
 
@@ -42,8 +47,8 @@ class Solution {
 
     	board[l][w] = temp;
     	
-    	if(letters[index] == board[l][w] && (left == 1 || down == 1 || up == 1 || right == 1)){
-    		System.out.println(letters[index]);
+    	if(left == 1 || down == 1 || up == 1 || right == 1){
+    		System.out.println(letters[index +1]);
 
     		return 1;
     	}

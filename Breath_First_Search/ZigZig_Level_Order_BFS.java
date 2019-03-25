@@ -77,20 +77,20 @@ class BinaryTree {
             // order. 
             if (leftToRight) { 
                 if (node.leftChild != null) { 
-                nextLevel.push(node.leftChild); 
+                    nextLevel.push(node.leftChild); 
                 } 
                   
                 if (node.rightChild != null) { 
-                nextLevel.push(node.rightChild); 
+                    nextLevel.push(node.rightChild); 
                 } 
             } 
             else { 
                 if (node.rightChild != null) { 
-                nextLevel.push(node.rightChild); 
+                    nextLevel.push(node.rightChild); 
                 } 
                   
                 if (node.leftChild != null) { 
-                nextLevel.push(node.leftChild); 
+                    nextLevel.push(node.leftChild); 
                 } 
             } 
           

@@ -1,6 +1,7 @@
 
 /*
-Given an array of integers, find the subset of non-adjacent elements with the maximum sum. Calculate the sum of that subset.
+Given an array of integers, find the subset of non-adjacent elements with the maximum sum. 
+Calculate the sum of that subset.
 
 For example, given an array we have the following possible subsets:
 
@@ -21,16 +22,17 @@ sample input:
 
 */
 
+import java.util.*;
 // Complete the maxSubsetSum function below.
     static int maxSubsetSum(int[] arr) {
     	int dp[] = new int[arr.size()];
 
     	for(int i=1;i<arr.size();i++)
 		{
-		    dp[i]=max(dp[i-2],max(dp[i-1],dp[i-2]+arr[i]));
+		    dp[i]=Math.max(dp[i-2], Math.max(dp[i-1], dp[i-2] + arr[i]));
 		}
 
 		int n=arr.size();
-		return max(dp[n-1],dp[n-2]);
+		return Math.max(dp[n-1],dp[n-2]);
     }
 

@@ -28,11 +28,11 @@
     for (Map.Entry<String, Integer> entry : sorted.entrySet())  
         System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());  
 	
-## Sort Hashmap by Key  ????
+## Sort Hashmap by value  ????
+???????
 
 
-
-// Sorting a list
+## Sorting a list
 Collections.sort(list)
 	
 
