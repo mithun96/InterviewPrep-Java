@@ -29,16 +29,22 @@ public class Solution {
     }
     
     public boolean traverse(TreeNode s,TreeNode t)
-    {
-        return  s!=null && ( equals(s,t) || traverse(s.left,t) || traverse(s.right,t));
+    {   
+        if( s == null){
+            return false;
+        }
+
+        return  (equals(s,t) || traverse(s.left,t) || traverse(s.right,t));
     }
 
     public boolean equals(TreeNode x,TreeNode y)
     {
         if(x==null && y==null)
             return true;
+
         if(x==null || y==null || x.val != y.val)
             return false;
+        
         return equals(x.left,y.left) && equals(x.right,y.right);
     }
 }

@@ -27,9 +27,9 @@ class Solution {
         if(root == null)
             return 0;
         
-        int left = check(root.left);
+        int left = check(root.left) + 1;
         
-        int right = check(root.right);
+        int right = check(root.right) + 1;
         
         if(left == -1 || right == -1)
             return -1;

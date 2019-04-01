@@ -42,13 +42,11 @@ class Rextester
         
         List<Node> queue = new ArrayList<Node>();
         queue.add(new Node(0, 0));
-        boolean pathExists = false;
         
         while(!queue.isEmpty()) {
             Node current = queue.remove(0);
             if(matrix[current.x][current.y] == 'X') {
-                pathExists = true;
-                break;
+                return true;
             }
             
             matrix[current.x][current.y] = '0'; // mark as visited
@@ -57,7 +55,7 @@ class Rextester
             queue.addAll(neighbors);
         }
         
-        return pathExists;
+        return false;
     }
     
     public static List<Node> getNeighbors(char[][] matrix, Node node) {

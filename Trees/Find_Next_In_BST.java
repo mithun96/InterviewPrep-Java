@@ -21,7 +21,7 @@ class Solution{
 		else { // find the first parent that is a left child (of its parent)
 			TreeNode par = root.parent;
 
-			while(pat != null && par.left != root){
+			while(par != null && par.left != root){
 				root = par;
 				par = par.parent;
 			}

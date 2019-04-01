@@ -24,7 +24,7 @@ class Solution {
         if (t1 == null && t2 == null)
             return null;
             
-        TreeNode temp= new TreeNode(0);
+        TreeNode temp = new TreeNode(0);
         
         if (t1 != null)
             temp.val += t1.val;

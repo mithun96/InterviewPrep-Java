@@ -60,9 +60,9 @@ public class LFUCache {
     
     int capacity;
     int size;
-    int minFreq;
-    Map<Integer, Node> nodeMap;
-    Map<Integer, DLList> countMap;
+    int minFreq;                     // The least frequency count, used to access the countMap. 
+    Map<Integer, Node> nodeMap;      // <Node'e key, Node>
+    Map<Integer, DLList> countMap;   // <Frequency Count, List of all nodes with that freqency>
 
     public LFUCache(int capacity) {
         this.capacity = capacity;
@@ -73,7 +73,7 @@ public class LFUCache {
     public int get(int key) {
         Node node = nodeMap.get(key);
         if (node == null) return -1;
-        update(node);
+        update(node);   // Move node up to more frequent list 
         return node.val;
     }
     

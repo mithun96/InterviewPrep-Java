@@ -29,13 +29,10 @@ class Solution {
     	if(l >= board.length || l < 0 || w >= board[0].length || w < 0 || index >= letters.length || board[l][w] != letters[index]){
     		return 0;
     	}
-       if (index == letters.length - 1) {
+        
+        if (index == letters.length - 1) {
            return 1;
-       }
-
-       if(letters[index] != board[l][w]){
-            return 0;
-       }
+        }
 
     	char temp = board[l][w];
     	board[l][w] = '$';

@@ -26,9 +26,11 @@ class Solution {
     }
 
     public boolean check(TreeNode left, TreeNode right){
+        if (left == null && right == null)
+            return true;
 
     	if (left == null || right == null)
-    		return left == right;
+    		return false;
 
     	if(left.val != right.val)
     		return false;

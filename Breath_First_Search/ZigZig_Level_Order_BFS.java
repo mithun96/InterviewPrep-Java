@@ -5,7 +5,7 @@ import java.util.*;
 class BinaryTree { 
     Node rootNode; 
       
-    ArrayList<LinkedList<TreeNode>> printZigZagTraversal2(TreeNode root) { 
+    public ArrayList<LinkedList<TreeNode>> printZigZagTraversal2(TreeNode root) { 
           
         // if null then return 
         if (root == null) { 

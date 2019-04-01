@@ -36,7 +36,7 @@ public class Axis{
 public class Matrix{
     HashMap<Integer, Integer> m;
     
-    public Matrix(int m, int n){
+    public Matrix(){
         m = new HashMap<>();
     }
     
@@ -67,8 +67,5 @@ public class Matrix{
             }
         }
     }
-    
-    
-    
     
 }
