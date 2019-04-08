@@ -3,13 +3,25 @@
 
 // ============FIRST WAY===========================================================
 
-HashMap<String, Integer> map = new HashMap<String, String>();
+	// Sort HashMap by value 
+	// Create a list from elements of HashMap 
+    List<Map.Entry<String, Integer> > list = 
+           new LinkedList<Map.Entry<String, Integer> >(map.entrySet()); 
 
-HashMap<String, Integer> sortedByValue = map.entrySet()
-    .stream()
-    .sorted(Map.Entry.comparingByValue())
-    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-
+    // Sort the list 
+    Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() { 
+        public int compare(Map.Entry<String, Integer> o1,  
+                           Map.Entry<String, Integer> o2) 
+        { 
+            return (o2.getValue()).compareTo(o1.getValue()); 
+        } 
+    }); 
+      
+    // put data from sorted list to hashmap  
+    HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>(); 
+    for (Map.Entry<String, Integer> aa : list) { 
+        temp.put(aa.getKey(), aa.getValue()); 
+    } 
 
 // ============SECOND WAY===========================================================
 

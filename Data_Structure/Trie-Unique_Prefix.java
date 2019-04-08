@@ -41,9 +41,6 @@ import java.util.*;
 // Java program to print all prefixes that 
 // uniquely represent words. 
 class Solution { 
-              
-    // Maximum length of an input word 
-    static final int MAX_WORD_LEN = 500; 
        
     // Trie Node. 
     static class TrieNode 
@@ -104,7 +101,7 @@ class Solution {
             }           
 
             System.out.print("  "); 
-            return; 
+            return;     
         } 
        
         for(char c : root.child.keySet()){

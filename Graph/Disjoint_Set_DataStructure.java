@@ -83,7 +83,8 @@ class DisjointUnionSets
     boolean union(int x, int y) 
     { 
         // Find representatives of two sets 
-        int xRoot = find(x), yRoot = find(y); 
+        int xRoot = find(x), 
+        int yRoot = find(y); 
   
         // Elements are in the same set, no need 
         // to unite anything. 

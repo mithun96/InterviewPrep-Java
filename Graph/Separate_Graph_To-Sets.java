@@ -2,7 +2,7 @@
 // Separate the graph (2D) into sets of color 
 
 class Solution {
-    public int minMalwareSpread(int[][] graph, int[] initial) {
+    public int minMalwareSpread(int[][] graph) {
         // 1. Color each component.
         // colors[node] = the color of this node.
 
