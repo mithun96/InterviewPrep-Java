@@ -42,10 +42,10 @@ class Solution {
     		}
 
     		cur.val = sum % 10;
-    		ListNode next = new ListNode(sum / 10);
+            sum = sum / 10;
+    		ListNode next = new ListNode(sum);
     		next.next = cur; 
     		cur = next;
-    		sum = sum / 10;
     	}
         
         if (cur.val == 0)

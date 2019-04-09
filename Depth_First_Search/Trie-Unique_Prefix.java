@@ -36,7 +36,7 @@ and if a prefix is not prefix of any other string, then print it.
     Time complexity if this step also is O(N) where N is total number of characters in all words.
 */
 
-
+import java.util.*;
 
 // Java program to print all prefixes that 
 // uniquely represent words. 
@@ -50,12 +50,11 @@ class Solution {
     // Trie Node. 
     static class TrieNode 
     { 
-        TrieNode[] child = new TrieNode[MAX]; 
+        HashMap<Character, TrieNode> child = new HashMap<>();
         int freq;  // To store frequency 
+
         TrieNode() { 
             freq =1; 
-            for (int i = 0; i < MAX; i++) 
-                child[i] = null; 
         } 
     } 
     static TrieNode root; 
@@ -72,23 +71,27 @@ class Solution {
         { 
             // Get index of child node from current character 
             // in str. 
-            int index = str.charAt(level); 
-       
+            char c = str.charAt(level); 
             // Create a new child if not exist already 
-            if (pCrawl.child[index] == null) 
-                pCrawl.child[index] = new TrieNode(); 
-            else
-               (pCrawl.child[index].freq)++; 
+            if (!pCrawl.child.containsKey(c)) 
+                pCrawl.child.put(c, new TrieNode()); 
+            else{
+                TrieNode temp = pCrawl.child.get(c);
+                temp.freq++;
+                pCrawl.child.put(c, temp); 
+
+            }
+            
        
             // Move to the child 
-            pCrawl = pCrawl.child[index]; 
+            pCrawl = pCrawl.child.get(c); 
         } 
     } 
        
     // This function prints unique prefix for every word stored 
     // in Trie. Prefixes one by one are stored in prefix[]. 
     // 'ind' is current index of prefix[] 
-    static void findPrefixesUtil(TrieNode root, char[] prefix, int ind) 
+    static void findPrefixesUtil(TrieNode root, StringBuilder str) 
     { 
         // Corner case 
         if (root == null) 
@@ -97,22 +100,17 @@ class Solution {
         // Base case 
         if (root.freq == 1) 
         { 
-            prefix[ind] = '\0'; 
-            int i = 0; 
-            while(prefix[i] != '\0') 
-                System.out.print(prefix[i++]); 
-           
-            System.out.print("  "); 
+            System.out.println(str.toString());            
             return; 
         } 
        
-        for (int i=0; i<MAX; i++) 
+        for (Map.Entry<Character, TrieNode> entry : root.child.entrySet()) 
         { 
-           if (root.child[i] != null) 
-           { 
-               prefix[ind] = (char) i; 
-               findPrefixesUtil(root.child[i], prefix, ind+1); 
-           } 
+        
+           str.append(entry.getKey());
+           findPrefixesUtil(entry.getValue(), str); 
+           str.deleteCharAt(str.length() - 1);
+           
         } 
     } 
        
@@ -125,12 +123,9 @@ class Solution {
         root.freq = 0; 
         for (int i = 0; i<n; i++) 
             insert(arr[i]); 
-       
-        // Create an array to store all prefixes 
-        char[] prefix = new char[MAX_WORD_LEN]; 
           
         // Print all prefixes using Trie Traversal 
-        findPrefixesUtil(root, prefix, 0); 
+        findPrefixesUtil(root, new StringBuilder()); 
     } 
        
     // Driver function. 

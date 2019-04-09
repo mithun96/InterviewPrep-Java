@@ -15,7 +15,8 @@ After you are done modifying the input array in-place, return the new length of 
 class Solution {
 
     public int compress(char[] chars){
-        int achor = 0; write = 0;
+        int achor = 0; 
+        int write = 0;
         for(int read = 0; read < chars.length; read++){
             if(read + 1 == chars.length || chars[read + 1] != chars[read]){
                 chars[write++] = chars[anchor];

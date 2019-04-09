@@ -17,7 +17,7 @@ class Solution {
         	for(int j = 0; j < wid; j++){
 
         		if(board[i][j] == letters[0]){
-        			if (DFS(board, i, j, 0, letters) == 1)
+        			if (DFS(board, i, j, 0, letters))
         				return true;
         		}
         	}
@@ -25,13 +25,13 @@ class Solution {
         return false;
    
     }
-    public static int DFS(char[][] board, int l, int w, int index, char[] letters){
+    public static boolean DFS(char[][] board, int l, int w, int index, char[] letters){
     	if(l >= board.length || l < 0 || w >= board[0].length || w < 0 || index >= letters.length || board[l][w] != letters[index]){
-    		return 0;
+    		return false;
     	}
         
         if (index == letters.length - 1) {
-           return 1;
+           return true;
         }
 
     	char temp = board[l][w];
@@ -47,9 +47,9 @@ class Solution {
     	if(left == 1 || down == 1 || up == 1 || right == 1){
     		System.out.println(letters[index +1]);
 
-    		return 1;
+    		return true;
     	}
-    	return 0;
+    	return false;
 
     }
 }

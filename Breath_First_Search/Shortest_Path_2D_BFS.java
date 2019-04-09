@@ -49,6 +49,7 @@ class Rextester
 
         while(!queue.isEmpty()) {
             Node current = queue.remove(0);
+            
             if(current.x == matrix.length && current.y == matrix[0].length) {
                 return current.dist;
             }

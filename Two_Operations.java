@@ -1,5 +1,6 @@
 //Twitter Challenge
 
+class Solution{
     /*
      * Complete the function below.
      */
@@ -24,3 +25,4 @@
         }
         return result;
     }
+}

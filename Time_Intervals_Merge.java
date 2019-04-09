@@ -31,6 +31,7 @@ public class Solution {
         		mergedEnd = interval.end;
         	}
         }
+        
         ans.add(new Interval(mergedStart, mergedEnd));
         return ans;
     }

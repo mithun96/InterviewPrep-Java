@@ -8,7 +8,7 @@ class HashNode<K, V>
     K key;
     V value;
  
-    // Reference to next node
+    // Reference to next nodes
     HashNode<K, V> next;
  
     // Constructor

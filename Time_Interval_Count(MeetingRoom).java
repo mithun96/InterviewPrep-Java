@@ -65,19 +65,22 @@ public class Solution {
             meet.add(new int[] {interval.start, 1});
             meet.add(new int[] {interval.end, 0});
         }
+
         Collections.sort(meet, new Comparator<int[]> () {
             public int compare(int[] a, int[] b) {
                 return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0];
             }
         });
+
         int count = 0;
         int ans = 0;
         for(int[] m : meet) {
-            if(m[1] == 1) {
+            if(m[1] == 1) { // if starting time
                 count++;
-            } else {
+            } else {       // if ending time
                 count--;
             }
+            
             ans = Math.max(ans, count);
         }
         return ans;
