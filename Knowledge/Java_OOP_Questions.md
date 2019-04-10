@@ -26,6 +26,7 @@ When methods of the same signiture are in both super and sub class. There method
 
 ## Method Overloading Vs. Overrding 
 Method overloading is resolved at complie time. Complier only need information of class for method overloading 
+
 Method overriding is resolved at run time. Needs information of obeject to resolve the overriding method 
 
 # Detailed Question
@@ -41,6 +42,7 @@ No, you cannot override a static method its not bounded to an object. But you ca
 
 ## Can we override a non-static method as static in Java? (answer)
 Yes, you can override the non-static method in Java, no problem on them but it should not be private or final :)
+
 Read more: http://www.java67.com/2015/12/top-30-oops-concept-interview-questions-answers-java.html#ixzz50u1h6Q9n
 
 ## Private Methods
@@ -48,14 +50,17 @@ Private method can only be accessibled in the class it is declared.
 
 ## Can you override a private method?  ***
 No, you can NOT beucase private method can only be accessibled in the class it is declared. However, you can override a private method in a inner class (nested class) but it does not fundamentally work like method overriding. This is because even if you call the overriden method with the inner class object, the super method will be called. 
+
 Read more: http://java67.blogspot.sg/2013/08/can-we-override-private-method-in-java-inner-class.html
 
 ## How do you call superclass version of an overriding method in sub class? (answer)
 You can call a superclass version of an overriding method in the subclass by using super keyword. 
+
 Ex. to call the toString() method from java.lang.Object class you can call super.toString().
 
 ## Final Method?
 Final keyword with the method is to prevent method overriding. You use final when you don't want subclass changing the logic of your method by overriding it due to security reason. 
+
 Ex. String class is final in Java
 
 ## Final Class
@@ -76,6 +81,7 @@ Similar to an abstract class, the interface is also there to specify the contrac
 
 ## Abstract Class vs Interface
 Abstract class can contain non-abstract methods but interface can only contain abstract methods. 
+
 A class can not extend one class but can implement multiple interfaces. 
 
 
@@ -112,7 +118,7 @@ Allows programmers to create new classes that share some of the attributres of e
 
 # Cracking the Code Questions? 
 
-## 1. In terms of inheritance, what is teh effect of keeping a constuctor private? 
+## 1. In terms of inheritance, what is the effect of keeping a constuctor private? 
 
 Declaring a constructor pricate on class A means that you can only access the (private) constructor if you could also access A's private methods. A's inner classes can access it. Additionally, if A is an inncer class of Q, then Q's inner classes can access it too. 
 
